@@ -1,7 +1,9 @@
 extends Actor
 class_name Player
 
-func _physics_process(delta:float) -> void:
+export var delay_bigfall_time = 1 #lets me set the fall time
+
+func _physics_process(_delta:float) -> void:
 	var is_jump_interrupted: = Input.is_action_just_released("jump") and velocity.y < 0.0
 	var direction: = get_direction()
 	velocity = calculate_move_velocity(velocity, direction, speed, is_jump_interrupted)
@@ -35,21 +37,55 @@ func calculate_move_velocity(
 
 
 
-
 onready var _animated_sprite = $AnimatedSprite
 
-func _process(_delta):
+func _process(_delta:float) -> void:
 	
-	if Input.is_action_pressed("jump"):
-		_animated_sprite.play("flappy")
+	if velocity.y != 0:
+		if velocity.y < 0.0:
+			_animated_sprite.play("flappy")
+		else:
+			_animated_sprite.play("fall")
+		if velocity.y > 1000.0:
+			_animated_sprite.play("bigfall")
 	else:
-		_animated_sprite.stop()
+		if velocity.y == 0:
+			_animated_sprite.play("idle")
 	
-	if velocity.y > 0.0:
-		_animated_sprite.play("fall")
 	
-	if is_on_floor():
-		_animated_sprite.play("idle")
+	#_animated_sprite.play("bigfall") #plays the BIG fall animation if player falls
+	
+	#if velocity.y > 0.0 and "Timer is active":
+		#_animated_sprite.play("fall") #plays the normal fall animation if player falls
+	#else:
+		#velocity.y > 0.0 and "Timer is no longer active"
+		#_animated_sprite.play("bigfall")
+	
+	#return 
+
+
+
+
+
+#func _ready(): #lets me use the function
+	#bigfall_animation() 
+
+
+#func bigfall_animation(): 
+	#if velocity.y > 0.0 and "timer is no longer active": 
+		#_animated_sprite.play("bigfall") #plays the BIG fall animation if player falls
+	#$delay_bigfall.start(delay_bigfall_time) #delays the function
+
+
+#func _on_delay_fall_ani_timeout() -> void: #connected with Node
+	
+	#$delay_bigfall.start(delay_bigfall_time)#delays the function
+	
+	#if ($delay_bigfall.delay_bigfall_time > 0):
+		#print ("Timer is active")
+	#else:
+		#print ("Timer is no longer active")
+	#return
 
 
 
@@ -60,4 +96,8 @@ func _process(_delta):
 
 #func _on_Area2D_body_entered(body: Node) -> void:
 #	if body.get_name() == "Player":
+
+
+
+
 
