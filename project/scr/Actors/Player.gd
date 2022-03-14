@@ -32,6 +32,8 @@ func calculate_move_velocity(
 		veloci.y = 0.0
 	if (velocity.y < max_y_velocity):
 		velocity.y += gravity * get_physics_process_delta_time()
+	if veloci.y > 1500: 
+		veloci.y = 1500
 	return veloci
 
 
@@ -51,53 +53,4 @@ func _process(_delta:float) -> void:
 	else:
 		if velocity.y == 0:
 			_animated_sprite.play("idle")
-	
-	
-	#_animated_sprite.play("bigfall") #plays the BIG fall animation if player falls
-	
-	#if velocity.y > 0.0 and "Timer is active":
-		#_animated_sprite.play("fall") #plays the normal fall animation if player falls
-	#else:
-		#velocity.y > 0.0 and "Timer is no longer active"
-		#_animated_sprite.play("bigfall")
-	
-	#return 
-
-
-
-
-
-#func _ready(): #lets me use the function
-	#bigfall_animation() 
-
-
-#func bigfall_animation(): 
-	#if velocity.y > 0.0 and "timer is no longer active": 
-		#_animated_sprite.play("bigfall") #plays the BIG fall animation if player falls
-	#$delay_bigfall.start(delay_bigfall_time) #delays the function
-
-
-#func _on_delay_fall_ani_timeout() -> void: #connected with Node
-	
-	#$delay_bigfall.start(delay_bigfall_time)#delays the function
-	
-	#if ($delay_bigfall.delay_bigfall_time > 0):
-		#print ("Timer is active")
-	#else:
-		#print ("Timer is no longer active")
-	#return
-
-
-
-
-
-		#get_scene.queue_free()
-
-
-#func _on_Area2D_body_entered(body: Node) -> void:
-#	if body.get_name() == "Player":
-
-
-
-
 

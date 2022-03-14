@@ -47,7 +47,3 @@ position = Vector2( 0, -42 )
 scale = Vector2( 0.126877, 0.126877 )
 frames = SubResource( 2 )
 animation = "fall"
-
-[node name="delay_bigfall" type="Timer" parent="."]
-
-[connection signal="timeout" from="delay_bigfall" to="." method="_on_delay_fall_ani_timeout"]
