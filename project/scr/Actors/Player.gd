@@ -51,6 +51,9 @@ func _process(_delta:float) -> void:
 		if velocity.y > 1000.0:
 			_animated_sprite.play("bigfall")
 	else:
-		if velocity.y == 0:
+		if is_on_floor(): # oder: if velocity.y == 0:
 			_animated_sprite.play("idle")
+	if is_on_ceiling():
+		_animated_sprite.play("ceilingspam")
+
 

@@ -14,7 +14,7 @@ dest_files=[ "res://.import/tileset.png-497e4ffd83f6355ed8bade60521f4442.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0

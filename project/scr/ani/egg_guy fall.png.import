@@ -14,7 +14,7 @@ dest_files=[ "res://.import/egg_guy fall.png-320f2c9dfeba3ca73e4eed457898b973.st
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
