@@ -13,11 +13,6 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
-"loop": false,
-"name": "bigfall",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": false,
 "name": "ceilingspam",
@@ -32,6 +27,11 @@ animations = [ {
 "loop": true,
 "name": "flappy",
 "speed": 22.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "bigfall",
+"speed": 5.0
 } ]
 
 [node name="Player" type="KinematicBody2D"]
@@ -42,7 +42,7 @@ speed = Vector2( 400, 850 )
 modulate = Color( 0.14902, 0.494118, 0.54902, 1 )
 position = Vector2( -0.5, -29.125 )
 scale = Vector2( 20, 20 )
-polygon = PoolVector2Array( 1.525, -0.79375, 1.525, 0.10625, 1.275, 0.55625, 1.275, 1.45625, -1.275, 1.45625, -1.275, 0.60625, -1.575, 0.15625, -1.575, -0.79375, -1.275, -1.09375, -0.675, -1.49375, 0.425, -1.49375, 0.975, -1.39375, 1.275, -1.14375 )
+polygon = PoolVector2Array( 1.275, 0.55625, 1.275, 1.45625, -1.275, 1.45625, -1.275, 0.60625, -1.275, -1.09375, -0.675, -1.49375, 0.425, -1.49375, 0.975, -1.39375, 1.275, -1.14375 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

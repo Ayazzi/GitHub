@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scr/ani/egg_guy 2.png" type="Texture" id=1]
+[ext_resource path="res://scr/Actors/Player.gd" type="Script" id=2]
+[ext_resource path="res://scr/ani/egg_guy 3.png" type="Texture" id=3]
+[ext_resource path="res://scr/ani/egg_guy 1.png" type="Texture" id=4]
+[ext_resource path="res://scr/ani/egg_guy fall.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "ceilingspam",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": false,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "flappy",
+"speed": 22.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "bigfall",
+"speed": 5.0
+} ]
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 2 )
+speed = Vector2( 400, 850 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+modulate = Color( 0.14902, 0.494118, 0.54902, 1 )
+position = Vector2( -0.5, -29.125 )
+scale = Vector2( 20, 20 )
+polygon = PoolVector2Array( 1.275, 0.55625, 1.275, 1.45625, -1.275, 1.45625, -1.275, 0.60625, -1.275, -1.09375, -0.675, -1.49375, 0.425, -1.49375, 0.975, -1.39375, 1.275, -1.14375 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -42 )
+scale = Vector2( 0.126877, 0.126877 )
+frames = SubResource( 2 )
+animation = "ceilingspam"
