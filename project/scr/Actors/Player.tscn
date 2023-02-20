@@ -18,20 +18,20 @@ animations = [ {
 "name": "bigfall",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "ceilingspam",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": false,
 "name": "fall",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "flappy",
 "speed": 22.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": false,
-"name": "ceilingspam",
-"speed": 5.0
 } ]
 
 [node name="Player" type="KinematicBody2D"]
